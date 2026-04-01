@@ -188,11 +188,12 @@ export default function IssueForm({ dark = false }) {
   }
 
   // ── Form ──────────────────────────────────────────────────────
-  const card = dark ? 'bg-gray-900 border-gray-800' : 'bg-white border-gray-100'
+  const card      = dark ? 'bg-gray-900 border-gray-800' : 'bg-white border-gray-100'
+  const cardShadow = dark ? 'shadow-sm shadow-black/20' : 'shadow-xl shadow-gray-200/60'
   const div  = dark ? 'border-gray-800' : 'border-gray-100'
 
   return (
-    <main className="flex-1 flex items-start justify-center px-4 py-10">
+    <main className="flex-1 flex items-start justify-center px-4 py-6 sm:py-10">
       <div className="w-full max-w-2xl">
         <div className="mb-8">
           <h1 className={`text-2xl font-bold ${dark ? 'text-white' : 'text-[#2d3666]'}`}>
@@ -204,7 +205,7 @@ export default function IssueForm({ dark = false }) {
         </div>
 
         <form onSubmit={handleSubmit} noValidate>
-          <div className={`rounded-2xl shadow-sm border p-6 sm:p-8 space-y-6 ${card}`}>
+          <div className={`rounded-2xl border p-5 sm:p-8 space-y-6 ${cardShadow} ${card}`}>
 
             {/* ── Property Details ── */}
             <SectionLabel dark={dark}>Property Details</SectionLabel>
@@ -256,7 +257,7 @@ export default function IssueForm({ dark = false }) {
             </Field>
 
             <Field label="Urgency" required error={errors.urgency} dark={dark}>
-              <div className="flex gap-3">
+              <div className="grid grid-cols-3 gap-2 sm:gap-3">
                 {URGENCY_LEVELS.map((level) => {
                   const colors = {
                     Low:    { active: '#16a34a', bg: '#f0fdf4' },
@@ -302,7 +303,7 @@ export default function IssueForm({ dark = false }) {
                   {photos.map((p, i) => (
                     <div
                       key={i}
-                      className="relative group rounded-xl overflow-hidden border border-gray-200 bg-gray-50"
+                      className="relative group rounded-xl overflow-hidden border border-slate-200 bg-slate-50"
                       style={{ aspectRatio: '1' }}
                     >
                       {p.preview

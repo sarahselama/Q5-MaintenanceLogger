@@ -65,8 +65,7 @@ function PhotoLightbox({ photos, startIndex, onClose }) {
       )}
 
       {/* Image */}
-      <div
-        className="max-w-4xl max-h-[85vh] mx-16 flex flex-col items-center gap-3"
+      <div className="max-w-full max-h-[85vh] mx-2 sm:mx-16 flex flex-col items-center gap-3"
         onClick={(e) => e.stopPropagation()}
       >
         <img
@@ -323,7 +322,7 @@ export default function Dashboard({ dark }) {
   ]
 
   return (
-    <main className="flex-1 px-4 py-10">
+    <main className="flex-1 px-3 sm:px-6 py-6 sm:py-10">
       {/* Photo lightbox */}
       {lightbox && (
         <PhotoLightbox
@@ -364,7 +363,7 @@ export default function Dashboard({ dark }) {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-8">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 mb-6">
           <StatCard dark={dark} label="Total"        value={stats.total}      color="#2d3666" />
           <StatCard dark={dark} label="Open"         value={stats.open}       color="#4ab9e6" />
           <StatCard dark={dark} label="In Progress"  value={stats.inProgress} color="#f59e0b" />
@@ -373,7 +372,7 @@ export default function Dashboard({ dark }) {
         </div>
 
         {/* Filters + Search */}
-        <div className={`rounded-2xl border shadow-sm p-4 mb-6 flex flex-col sm:flex-row gap-3 items-start sm:items-center ${cardBg}`}>
+        <div className={`rounded-2xl border shadow-sm p-4 mb-6 flex flex-col sm:flex-row gap-3 ${cardBg}`}>
           <div className={`flex items-center gap-2 text-sm shrink-0 ${subtext}`}>
             <Filter size={14} />
             <span className="font-medium">Filter:</span>
