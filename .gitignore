@@ -13,3 +13,4 @@ dist-ssr/
 *.sln
 *.sw?
 npm-debug.log*
+node_modules/
